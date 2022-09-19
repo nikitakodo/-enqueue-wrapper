@@ -2,7 +2,7 @@
 
 use Enqueue\AmqpExt\AmqpProducer;
 use Enqueue\AmqpTools\DelayStrategy;
-use Enqueue\Wrapper\MessageProcessorInterface;
+use Nikitakodo\EnqueueWrapper\MessageProcessorInterface;
 use Interop\Amqp\AmqpMessage;
 use Interop\Amqp\Impl\AmqpQueue;
 use Interop\Queue\Context;

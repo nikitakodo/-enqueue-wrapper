@@ -2,7 +2,7 @@
 
 use Enqueue\AmqpExt\AmqpContext;
 use Enqueue\Consumption\QueueConsumer;
-use Enqueue\Wrapper\EnqueueMessageProducer;
+use Nikitakodo\EnqueueWrapper\EnqueueMessageProducer;
 use Interop\Amqp\AmqpDestination;
 use Interop\Amqp\AmqpQueue;
 
