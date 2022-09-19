@@ -11,7 +11,7 @@
   ],
   "minimum-stability": "stable",
   "autoload": {
-    "psr-4": { "Enqueue\\Wrapper\\": "" },
+    "psr-4": { "Nikitakodo\\EnqueueWrapper\\": "" },
     "exclude-from-classmap": ["/example/"]
 
   },
