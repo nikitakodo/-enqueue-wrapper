@@ -20,6 +20,7 @@
     "ext-amqp": "*",
     "enqueue/enqueue": "0.10.x-dev",
     "enqueue/amqp-ext": "0.10.x-dev",
-    "enqueue/amqp-tools": "0.10.x-dev"
+    "enqueue/amqp-tools": "0.10.x-dev",
+    "ext-json": "*"
   }
 }

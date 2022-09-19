@@ -2,6 +2,7 @@
 
 use Enqueue\AmqpExt\AmqpProducer;
 use Enqueue\AmqpTools\DelayStrategy;
+use Nikitakodo\EnqueueWrapper\Message as WrapperMessage;
 use Nikitakodo\EnqueueWrapper\MessageProcessorInterface;
 use Interop\Amqp\AmqpMessage;
 use Interop\Amqp\Impl\AmqpQueue;
@@ -34,12 +35,12 @@ abstract class AbstractMessageProcessor implements MessageProcessorInterface
      * @throws Exception\Exception
      * @throws \Exception
      */
-    public function requeueMessage(Context $context, MessageInterface $message, DelayStrategy $delayStrategy): void
+    public function requeueMessage(Context $context, WrapperMessage $message, DelayStrategy $delayStrategy): void
     {
-        if ((int)$message->getRepeatCount() >= self::MAX_REQUEUE_COUNT) {
+        if ((int)$message->repeatCount >= self::MAX_REQUEUE_COUNT) {
             return;
         }
-        $message->setRepeatCount($message->getRepeatCount() + 1);
+        $message->repeatCount++;
         /** @var AmqpMessage $delayedMessage */
         $delayedMessage = $context->createMessage(serialize($message));
         /** @var AmqpProducer $producer */
@@ -47,7 +48,7 @@ abstract class AbstractMessageProcessor implements MessageProcessorInterface
         /** @var AmqpQueue $queue */
         $queue = $context->createQueue($this->getQueueName());
         $producer->setDelayStrategy($delayStrategy);
-        $producer->setDeliveryDelay($message->getDeliveryDelay());
+        $producer->setDeliveryDelay($message->deliveryDelay);
         $producer->send($queue, $delayedMessage);
     }
 

@@ -26,34 +26,21 @@ class EnqueueMessageProducer implements MessageProducerInterface
      * @throws PriorityNotSupportedException
      * @throws InvalidDestinationException
      * @throws InvalidMessageException
+     * @throws \JsonException
      */
-    public function sendMessage(string $queueName, MessageInterface $message): void
+    public function sendMessage(string $queueName, Message $message): void
     {
         /** @var AmqpProducer $producer */
         $producer = $this->context->createProducer();
 
-        if ($message->getDelayStrategy()) {
-            $producer->setDelayStrategy($message->getDelayStrategy());
+        if ($message->deliveryDelay) {
+            $producer->setDeliveryDelay($message->deliveryDelay);
         }
 
-        if ($message->getDeliveryDelay()) {
-            $producer->setDeliveryDelay($message->getDeliveryDelay());
-        }
-
-        $producer->setPriority($message->getPriority())
+        $producer->setPriority($message->priority)
             ->send(
                 $this->context->createQueue($queueName),
-                $this->context->createMessage(serialize($message))
+                $this->context->createMessage(json_encode($message, JSON_THROW_ON_ERROR))
             );
-    }
-
-    public function createMessage(
-        string $body,
-        int $repeatCount = null,
-        int $deliveryDelay = null,
-        DelayStrategy $delayStrategy = null,
-        int $priority = null
-    ): MessageInterface {
-        return new EnqueueMessage($body, $repeatCount, $deliveryDelay, $delayStrategy, $priority);
     }
 }

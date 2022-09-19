@@ -10,5 +10,5 @@ interface MessageProcessorInterface extends Processor
 {
     public function getQueueName(): string;
 
-    public function requeueMessage(Context $context, MessageInterface $message, DelayStrategy $delayStrategy);
+    public function requeueMessage(Context $context, Message $message, DelayStrategy $delayStrategy);
 }
