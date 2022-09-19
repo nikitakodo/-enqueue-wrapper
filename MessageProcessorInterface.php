@@ -1,6 +1,6 @@
 <?php
 
-namespace Enqueue\Wrapper;
+namespace Nikitakodo\EnqueueWrapper;
 
 use Enqueue\AmqpTools\DelayStrategy;
 use Interop\Queue\Context;
