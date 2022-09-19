@@ -1,0 +1,26 @@
+{
+  "name": "nikitakodo/enqueue-wrapper",
+  "description": "simple enqueue wrapper for quick start with amqp-ext",
+  "type": "library",
+  "license": "GPL-3.0-or-later",
+  "authors": [
+    {
+      "name": "nikitakodo",
+      "email": "nikita.kodo@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": { "Enqueue\\Wrapper\\": "" },
+    "exclude-from-classmap": ["/example/"]
+
+  },
+  "require": {
+    "php": ">=7.4",
+    "ext-amqp": "*",
+    "ext-signal_handler": "*",
+    "enqueue/enqueue": "0.10.x-dev",
+    "enqueue/amqp-ext": "0.10.x-dev",
+    "enqueue/amqp-tools": "0.10.x-dev"
+  }
+}
