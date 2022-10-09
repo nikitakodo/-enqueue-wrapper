@@ -1,15 +1,16 @@
 <?php
 
+namespace Nikitakodo\EnqueueWrapper;
+
 use Enqueue\AmqpExt\AmqpProducer;
 use Enqueue\AmqpTools\DelayStrategy;
-use Nikitakodo\EnqueueWrapper\Message as WrapperMessage;
-use Nikitakodo\EnqueueWrapper\MessageProcessorInterface;
 use Interop\Amqp\AmqpMessage;
 use Interop\Amqp\Impl\AmqpQueue;
 use Interop\Queue\Context;
 use Interop\Queue\Exception;
 use Interop\Queue\Exception\DeliveryDelayNotSupportedException;
 use Interop\Queue\Message;
+use Nikitakodo\EnqueueWrapper\Message as WrapperMessage;
 
 abstract class AbstractMessageProcessor implements MessageProcessorInterface
 {

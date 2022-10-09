@@ -11,7 +11,7 @@
   ],
   "minimum-stability": "stable",
   "autoload": {
-    "psr-4": { "Nikitakodo\\EnqueueWrapper\\": "" },
+    "psr-4": { "Nikitakodo\\EnqueueWrapper\\": "src" },
     "exclude-from-classmap": ["/example/"]
 
   },
@@ -21,6 +21,7 @@
     "enqueue/enqueue": "0.10.x-dev",
     "enqueue/amqp-ext": "0.10.x-dev",
     "enqueue/amqp-tools": "0.10.x-dev",
-    "ext-json": "*"
+    "ext-json": "*",
+    "ext-pcntl": "*"
   }
 }

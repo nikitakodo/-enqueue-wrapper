@@ -1,10 +1,12 @@
 <?php
 
+namespace Nikitakodo\EnqueueWrapper;
+
 use Enqueue\AmqpExt\AmqpContext;
 use Enqueue\Consumption\QueueConsumer;
-use Nikitakodo\EnqueueWrapper\EnqueueMessageProducer;
 use Interop\Amqp\AmqpDestination;
 use Interop\Amqp\AmqpQueue;
+use Nikitakodo\EnqueueWrapper\EnqueueMessageProducer;
 
 class EnqueueListenerService
 {
