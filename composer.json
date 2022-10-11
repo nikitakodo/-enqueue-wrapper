@@ -22,6 +22,6 @@
     "enqueue/amqp-ext": "0.10.x-dev",
     "enqueue/amqp-tools": "0.10.x-dev",
     "ext-json": "*",
-    "ext-pcntl": "*"
+    "ext-signal_handler": "*"
   }
 }

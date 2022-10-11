@@ -6,7 +6,6 @@ use Enqueue\AmqpExt\AmqpContext;
 use Enqueue\Consumption\QueueConsumer;
 use Interop\Amqp\AmqpDestination;
 use Interop\Amqp\AmqpQueue;
-use Nikitakodo\EnqueueWrapper\EnqueueMessageProducer;
 
 class EnqueueListenerService
 {

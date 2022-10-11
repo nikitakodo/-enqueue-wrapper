@@ -13,10 +13,10 @@ class AsyncSignalExtension extends SignalExtension
     public function onStart(Start $context): void
     {
         parent::onStart($context);
-        pcntl_signal(SIGTERM, [$this, 'handleSignal']);
-        pcntl_signal(SIGINT, [$this, 'handleSignal']);
-        pcntl_signal(SIGUSR1, [$this, 'handleSignal']);
-        pcntl_signal(SIGHUP, [$this, 'handleSignal']);
-        pcntl_signal(SIGQUIT, [$this, 'handleSignal']);
+        attach_signal(SIGTERM, [$this, 'handleSignal']);
+        attach_signal(SIGINT, [$this, 'handleSignal']);
+        attach_signal(SIGUSR1, [$this, 'handleSignal']);
+        attach_signal(SIGHUP, [$this, 'handleSignal']);
+        attach_signal(SIGQUIT, [$this, 'handleSignal']);
     }
 }
