@@ -11,16 +11,17 @@
   ],
   "minimum-stability": "stable",
   "autoload": {
-    "psr-4": { "Nikitakodo\\EnqueueWrapper\\": "" },
+    "psr-4": { "Nikitakodo\\EnqueueWrapper\\": "src" },
     "exclude-from-classmap": ["/example/"]
 
   },
   "require": {
     "php": ">=7.4",
     "ext-amqp": "*",
+    "ext-json": "*",
+    "ext-signal_handler": "*",
     "enqueue/enqueue": "0.10.x-dev",
     "enqueue/amqp-ext": "0.10.x-dev",
-    "enqueue/amqp-tools": "0.10.x-dev",
-    "ext-json": "*"
+    "enqueue/amqp-tools": "0.10.x-dev"
   }
 }

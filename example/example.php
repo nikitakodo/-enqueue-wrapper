@@ -3,6 +3,7 @@
 use Enqueue\AmqpExt\AmqpConnectionFactory;
 use Enqueue\Consumption\ChainExtension;
 use Enqueue\Consumption\QueueConsumer;
+use Nikitakodo\EnqueueWrapper\EnqueueListenerService;
 use Nikitakodo\EnqueueWrapper\AsyncSignalExtension;
 
 $factory = new AmqpConnectionFactory([
