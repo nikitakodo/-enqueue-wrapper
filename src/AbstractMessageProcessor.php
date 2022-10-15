@@ -16,6 +16,16 @@ abstract class AbstractMessageProcessor implements MessageProcessorInterface
 {
     public const MAX_REQUEUE_COUNT = 10;
 
+    protected ProcessorConfigInterface $config;
+
+    /**
+     * @param ProcessorConfigInterface $config
+     */
+    public function __construct(ProcessorConfigInterface $config)
+    {
+        $this->config = $config;
+    }
+
     /**
      * @param Message $message
      * @param Context $context
