@@ -10,12 +10,12 @@ use Interop\Amqp\AmqpQueue;
 class EnqueueListenerService
 {
     /**
-     * @var array<string, AbstractMessageProcessor>
+     * @var array<string, MessageProcessorInterface>
      */
     private array $enqueueProcessors = [];
 
     /**
-     * @var array<string, AbstractMessageProcessor>
+     * @var array<string, MessageProcessorInterface>
      */
     private array $boundProcessors = [];
 
@@ -29,7 +29,7 @@ class EnqueueListenerService
     }
 
     /**
-     * @param array<int, string> $processors
+     * @param array<int, MessageProcessorInterface> $processors
      */
     public function registerProcessors(array $processors): void
     {
@@ -38,10 +38,8 @@ class EnqueueListenerService
         }
     }
 
-    public function registerProcessor(string $processorClass): void
+    public function registerProcessor(MessageProcessorInterface $processor): void
     {
-        /** @var AbstractMessageProcessor $processor */
-        $processor = new $processorClass();
         $this->enqueueProcessors[$processor->getQueueName()] = $processor;
     }
 
@@ -70,7 +68,7 @@ class EnqueueListenerService
     }
 
     /**
-     * @return array<string, AbstractMessageProcessor>
+     * @return array<string, MessageProcessorInterface>
      */
     public function getBoundProcessors(): array
     {
