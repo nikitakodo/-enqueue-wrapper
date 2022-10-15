@@ -27,7 +27,7 @@ abstract class AbstractMessageProcessor implements MessageProcessorInterface
     /**
      * @return string
      */
-    abstract static public function getQueueName(): string;
+    abstract public function getQueueName(): string;
 
     /**
      * Requeue queue message.

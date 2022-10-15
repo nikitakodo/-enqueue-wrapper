@@ -8,7 +8,7 @@ use Interop\Queue\Processor;
 
 interface MessageProcessorInterface extends Processor
 {
-    public static function getQueueName(): string;
+    public function getQueueName(): string;
 
     public function requeueMessage(Context $context, Message $message, DelayStrategy $delayStrategy);
 }
